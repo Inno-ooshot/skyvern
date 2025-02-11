@@ -71,6 +71,10 @@ services:
       # - AWS_REGION=us-west-2                         # Replace this with a different AWS region, if you desire
       # - AWS_ACCESS_KEY_ID=FILL_ME_IN_PLEASE
       # - AWS_SECRET_ACCESS_KEY=FILL_ME_IN_PLEASE
+      # Uncomment if you want to use BITWARDEN or VAULTWARDEN password mannagers :
+      # - BITWARDEN_CLIENT_ID=[User ID]
+      # - BITWARDEN_CLIENT_SECRET=[Client Secret]
+      # - BITWARDEN_MASTER_PASSWORD=[Your master password]
     depends_on:
       postgres:
         condition: service_healthy

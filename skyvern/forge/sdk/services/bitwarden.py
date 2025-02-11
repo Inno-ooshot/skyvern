@@ -420,6 +420,11 @@ class BitwardenService:
 
     @staticmethod
     def login(client_id: str, client_secret: str) -> None:
+   		#Uncomment if you want to use Bitwarden or Vaultwarden service
+   		#login_url= ["bw","config","server","Your website or bitwarden hosting link"]
+        #login_pass = BitwardenService.run_command(login_url)
+
+        #LOG.info(f"Bitwarden: {login_pass.stdout}.")
         """
         Log in to the Bitwarden CLI.
         """
@@ -430,7 +435,8 @@ class BitwardenService:
         login_command = ["bw", "login", "--apikey"]
         login_result = BitwardenService.run_command(login_command, env)
 
-        # Validate the login result
+        # Validate the login result        
+        
         if login_result.stdout and "You are logged in!" not in login_result.stdout:
             raise BitwardenLoginError(f"Failed to log in. stdout: {login_result.stdout} stderr: {login_result.stderr}")
 
